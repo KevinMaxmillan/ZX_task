@@ -21,5 +21,12 @@ export const useSceneStore = create<SceneState>((set) => ({
         ],
       })),
     setSelectedObjectId: (id) => set({ selectedObjectId: id }),
+    updateObject: (id, data) =>
+      set((state) => ({
+        objects: state.objects.map((obj) =>
+          obj.id === id ? { ...obj, ...data } : obj
+        ),
+      })),
+    setObjects: (objects) => set({ objects }),
     
   }));

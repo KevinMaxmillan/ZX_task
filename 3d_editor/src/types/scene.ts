@@ -17,5 +17,7 @@ export interface SceneState {
     selectedObjectId: string | null;
     addObject: (type: 'cube' | 'sphere') => void;
     setSelectedObjectId: (id: string | null) => void;
+    updateObject: (id: string, data: Partial<SceneObject>) => void;
+    setObjects: (objects: SceneObject[]) => void;
     
   }
