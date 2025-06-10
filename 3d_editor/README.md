@@ -1,54 +1,76 @@
-# React + TypeScript + Vite
+# 3D Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern 3D editor built with React, Three.js, React-Three/fiber, React_Three/Drei, Zustand and TypeScript. 
+## Features
 
-Currently, two official plugins are available:
+- Interactive 3D scene 
+- Object transformation translate, rotate and scale
+- Featurs of adding, deleting objects
+- Features of saving, uploading the created scene
+- TypeScript for type safety
+- State management with Zustand
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (v16 or higher)
+- npm or yarn package manager
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Installation
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd 3d_editor
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
+```bash
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Running the Project
+
+### Development Mode
+
+To start the development server:
+
+```bash
+npm run dev
+
+
+The application will be available at `http://localhost:5173`
+
+### Building for Production
+
+## Project Structure
+
 ```
+src/
+├── components/    # React components
+├── store/         # Zustand state management
+├── types/         # TypeScript type definitions
+├── utils/         # Utility functions
+├── App.tsx        # Main application component
+└── main.tsx       # Application entry point
+```
+
+## Tech Stack
+
+- React 19
+- Three.js
+- React Three Fiber
+- React Three Drei
+- TypeScript
+- Vite
+- Zustand (State Management)
+- Leva (UI Controls)
+
+## Future Improvements
+
+With more time, the following improvements would be implemented:
+
+   - Add undo/redo functionality
+   - Implement more advanced material editing
+   - Improve UI
+   - Add keyboard shortcuts for common operations
+

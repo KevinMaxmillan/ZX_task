@@ -6,11 +6,8 @@ export interface SceneObject {
   position: [number, number, number];
   rotation: [number, number, number];
   scale: [number, number, number];
+  color: string;
 }
-
-export interface Scene {
-  objects: SceneObject[];
-} 
 
 export interface SceneState {
     objects: SceneObject[];
@@ -19,5 +16,7 @@ export interface SceneState {
     setSelectedObjectId: (id: string | null) => void;
     updateObject: (id: string, data: Partial<SceneObject>) => void;
     setObjects: (objects: SceneObject[]) => void;
-    
+    transformMode: 'translate' | 'rotate' | 'scale';
+    setTransformMode: (mode: 'translate' | 'rotate' | 'scale') => void;
+    deleteObject: (id: string) => void;
   }

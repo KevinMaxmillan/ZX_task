@@ -1,9 +1,9 @@
 import { useSceneStore } from '../store/sceneStore';
 import { SceneCanvas } from '../components/sceneCanvas'
-import { saveScene } from '../utils/sceneFileHandler';
+import { saveScene, loadSceneFromFile } from '../utils/sceneFileHandler';
 
 const SceneEditor = () => {
-  const { addObject, objects } = useSceneStore();
+  const { addObject, objects, setObjects, deleteObject, selectedObjectId } = useSceneStore();
 
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
@@ -11,7 +11,13 @@ const SceneEditor = () => {
         <button onClick={() => addObject('cube')}>Add Cube</button>
         <button onClick={() => addObject('sphere')}>Add Sphere</button>
         <button onClick={() => saveScene(objects)}>Save Scene</button>
-        
+        <button onClick={() => loadSceneFromFile(setObjects)}>Load Scene</button>
+        <button 
+          onClick={() => selectedObjectId && deleteObject(selectedObjectId)}
+          disabled={!selectedObjectId}
+        >
+          Delete Selected
+        </button>
       </div>
       <SceneCanvas />
     </div>

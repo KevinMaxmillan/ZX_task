@@ -10,7 +10,7 @@ export const TransformModeControls = ({
           top: 10,
           left: 10,
           zIndex: 1000,
-          marginTop: "20px",
+          marginTop: "40px",
         }}
       >
         <button onClick={() => setMode("translate")}>Move</button>

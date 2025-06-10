@@ -9,3 +9,20 @@ export function saveScene(objects: SceneObject[]) {
     a.download = 'scene.json';
     a.click();
   }
+
+export function loadSceneFromFile(callback: (objs: SceneObject[]) => void) {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e: Event) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const objects = JSON.parse(reader.result as string);
+        callback(objects);
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  }

@@ -17,6 +17,7 @@ export const useSceneStore = create<SceneState>((set) => ({
             position: [0, 0, 0],
             rotation: [0, 0, 0],
             scale: [1, 1, 1],
+            color: '#00bfff',
           },
         ],
       })),
@@ -28,5 +29,11 @@ export const useSceneStore = create<SceneState>((set) => ({
         ),
       })),
     setObjects: (objects) => set({ objects }),
-    
+    transformMode: 'translate',
+    setTransformMode: (mode) => set({ transformMode: mode }),
+    deleteObject: (id: string) =>
+      set((state) => ({
+        objects: state.objects.filter((obj) => obj.id !== id),
+        selectedObjectId: state.selectedObjectId === id ? null : state.selectedObjectId,
+      })),
   }));
